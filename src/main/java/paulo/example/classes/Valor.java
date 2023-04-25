@@ -1,38 +1,71 @@
 package paulo.example.classes;
 
+import java.text.DecimalFormat;
+
 public class Valor {
-    private int valorIntteiro;
-    private double valorDecimal;
-    private String valorIdentificador;
+    private int valorINT;
+    private double valorDEC;
+    private String idValor;
+    private TipoValor tipo;
 
-
-    public int getValorIntteiro() {
-        return valorIntteiro;
+    private enum TipoValor {
+        INT, DEC, ID
     }
 
-    public void setValorIntteiro(int valorIntteiro) {
-        this.valorIntteiro = valorIntteiro;
+    public Valor() {
     }
 
-    public double getValorDecimal() {
-        return valorDecimal;
+    public Valor(int valorINT) {
+        this.valorINT = valorINT;
+        tipo = TipoValor.INT;
     }
 
-    public void setValorDecimal(double valorDecimal) {
-        this.valorDecimal = valorDecimal;
+    public Valor(String idValor) {
+        this.idValor = idValor;
+        tipo = TipoValor.ID;
     }
 
-    public String getValorIdentificador() {
-        return valorIdentificador;
+    public Valor(double valorDEC) {
+        this.valorDEC = valorDEC;
+        tipo = TipoValor.DEC;
     }
 
-    public void setValorIdentificador(String valorIdentificador) {
-        this.valorIdentificador = valorIdentificador;
+    public int getValorINT() {
+        return valorINT;
+    }
+
+    public void setValorINT(int valorINT) {
+        this.valorINT = valorINT;
+        tipo = TipoValor.INT;
+    }
+
+    public double getValorDEC() {
+        return valorDEC;
+    }
+
+    public void setValorDEC(double valorDEC) {
+        this.valorDEC = valorDEC;
+        tipo = TipoValor.DEC;
+    }
+
+    public String getIDValor() {
+        return idValor;
+    }
+
+    public void setIDValor(String idValor) {
+        this.idValor = idValor;
+        tipo = TipoValor.ID;
     }
 
     @Override
     public String toString() {
-        return "Valor [valorIntteiro=" + valorIntteiro + ", valorDecimal=" + valorDecimal + ", valorIdentificador="
-                + valorIdentificador + "]";
+        if (tipo == TipoValor.INT) {
+            return "\n\tInteiro: " + valorINT;
+        } else if (tipo == TipoValor.DEC) {
+            DecimalFormat df = new DecimalFormat("#.######");
+            return "\n\tDecimal: " + df.format(valorDEC);
+        } else {
+            return "\n\tId: " + idValor;
+        }
     }
 }

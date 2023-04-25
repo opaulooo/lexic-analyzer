@@ -1,10 +1,13 @@
 package paulo.example.classes;
 
+import java.text.DecimalFormat;
+
 public class Token {
     private Classe classe;
     private Valor valor;
     private int linha;
     private int coluna;
+    private int tamanhoToken;
 
     public Classe getClasse() {
         return classe;
@@ -38,8 +41,23 @@ public class Token {
         this.coluna = coluna;
     }
 
+    public int getTamanhoToken() {
+        return tamanhoToken;
+    }
+
+    public void setTamanhoToken(int tamanhoToken) {
+        this.tamanhoToken = tamanhoToken;
+    }
+
     @Override
     public String toString() {
-        return "Token [classe=" + classe + ", valor=" + valor + ", linha=" + linha + ", coluna=" + coluna + "]";
+        return "\nToken: " +
+                "\nClasse: " + classe +
+                "\nValor: " + valor +
+                "\nLinha: " + linha +
+                "\nColuna: " + coluna +
+                "\nTamanho do Token: " + tamanhoToken +
+                "\n";
     }
+
 }
