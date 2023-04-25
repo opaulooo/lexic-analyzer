@@ -1,7 +1,5 @@
 package paulo.example.classes;
 
-import java.text.DecimalFormat;
-
 public class Token {
     private Classe classe;
     private Valor valor;
@@ -52,11 +50,11 @@ public class Token {
     @Override
     public String toString() {
         return "\nToken: " +
-                "\nClasse: " + classe +
-                "\nValor: " + valor +
-                "\nLinha: " + linha +
-                "\nColuna: " + coluna +
-                "\nTamanho do Token: " + tamanhoToken +
+                "\n\tClasse: " + classe +
+                "\n\tValor: " + valor +
+                "\n\tLinha: " + linha +
+                "\n\tColuna: " + coluna +
+                "\n\tTamanho do Token: " + tamanhoToken +
                 "\n";
     }
 
