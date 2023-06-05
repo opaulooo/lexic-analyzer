@@ -8,29 +8,24 @@ import java.nio.file.Paths;
 
 import paulo.example.classes.Classe;
 import paulo.example.classes.Lexico;
+import paulo.example.classes.Sintatico;
 import paulo.example.classes.Token;
 
-public class App {
-    public static void main(String[] args) {
+public class App
+{
+    public static void main( String[] args )
+    {
 
         String nomeArquivo = "teste.pas";
 
         substituirTabulacao(nomeArquivo);
 
-        Lexico lexico = new Lexico(nomeArquivo);
+        Sintatico analisadorSintatico = new Sintatico(nomeArquivo);
 
-        Token token;
-        int linha = 0;
-        int coluna = 0;
-
-        do {
-            token = lexico.getToken(linha, coluna);
-            System.out.println(token);
-            coluna = token.getColuna() + 1;
-            linha = token.getLinha();
-        } while (token.getClasse() != Classe.cEOF);
+        analisadorSintatico.Analisar();
 
     }
+
 
     public static void substituirTabulacao(String nomeArquivo) {
         Path caminhoArquivo = Paths.get(nomeArquivo);
@@ -53,3 +48,4 @@ public class App {
         }
     }
 }
+

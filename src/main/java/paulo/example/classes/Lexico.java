@@ -21,7 +21,9 @@ public class Lexico {
             "function", "goto", "if", "in", "label", "mod",
             "nil", "not", "of", "or", "packed", "procedure",
             "program", "record", "repeat", "set", "then",
-            "to", "type", "until", "var", "while", "with"));
+            "to", "type", "until", "var", "while", "with",
+            "read", "write", "real", "integer"
+    ));
 
     public Lexico(String nomeArquivo) {
         this.caminhoArquivo = Paths.get(nomeArquivo).toAbsolutePath().toString();
@@ -112,7 +114,7 @@ public class Lexico {
                                     tamanhoToken++;
                                 } else {
                                     this.br.unread(proximo);
-                                    token.setClasse(Classe.cTwoPontos);
+                                    token.setClasse(Classe.cTwoPoints);
                                 }
                                 break;
                             }
