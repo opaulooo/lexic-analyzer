@@ -17,11 +17,8 @@ public class App
     {
 
         String nomeArquivo = "teste.pas";
-
         substituirTabulacao(nomeArquivo);
-
         Sintatico analisadorSintatico = new Sintatico(nomeArquivo);
-
         analisadorSintatico.Analisar();
 
     }
